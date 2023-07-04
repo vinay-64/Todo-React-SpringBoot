@@ -6,3 +6,5 @@
 3. Installed bootstrap and imported the 'bootstrap\dist\css\bootstrap.min.css' path in the index.js file, so that all the app components can use this bootstrap.
 
 4. Bootstrap styling has been added to header and footer.
+
+5. Every Component has been moved to a it's own separate file.
