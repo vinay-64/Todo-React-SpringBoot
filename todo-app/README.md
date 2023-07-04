@@ -8,3 +8,8 @@
 4. Bootstrap styling has been added to header and footer.
 
 5. Every Component has been moved to a it's own separate file.
+
+6. Whatever you are setting into state, typically is only available for the duration of that specific component.
+   Eg: As soon as we submit login, we move to another component, and that old state will disappear. The state of login component will no longer exist.
+   However if you want to retain the fact that the user is logged in, and you want to use that in the header component. So, whenever user is logged in, we want the state user logged in. same for logout.
+   And we want to share that state across different components. So we can create context and we can share this context across different components.
