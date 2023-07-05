@@ -7,7 +7,7 @@ export default function LoginComponent() {
 
   const [password, setPassword] = useState("");
 
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  // const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
@@ -25,27 +25,21 @@ export default function LoginComponent() {
   }
 
   function handleSubmit() {
-    if (username === "vinay" && password === "kumar") {
-      authContext.setAuthenticated(true);
-      console.log("Success");
-      setShowSuccessMessage(true);
-      setShowErrorMessage(false);
+    if (authContext.login(username, password)) {
+      //NEW
       navigate(`/welcome/${username}`);
     } else {
-      authContext.setAuthenticated(false);
-      console.log("Failed");
-      setShowSuccessMessage(false);
       setShowErrorMessage(true);
     }
   }
 
-  function SuccessMessageComponent() {
-    if (showSuccessMessage) {
-      return <div className="successMessage">Authenticated Successfully</div>;
-    }
+  // function SuccessMessageComponent() {
+  //   if (showSuccessMessage) {
+  //     return <div className="successMessage">Authenticated Successfully</div>;
+  //   }
 
-    return null;
-  }
+  //   return null;
+  // }
 
   function ErrorMessageComponent() {
     if (showErrorMessage) {
@@ -62,7 +56,7 @@ export default function LoginComponent() {
   return (
     <div className="Login">
       <h1>Time to Login!</h1>
-      <SuccessMessageComponent />
+      {/* <SuccessMessageComponent /> */}
       <ErrorMessageComponent />
       <div className="LoginForm">
         <div>

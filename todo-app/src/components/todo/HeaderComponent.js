@@ -10,7 +10,7 @@ export default function HeaderComponent() {
   console.log(authContext);
 
   function logout() {
-    authContext.setAuthenticated(false);
+    authContext.logout();
   }
 
   return (

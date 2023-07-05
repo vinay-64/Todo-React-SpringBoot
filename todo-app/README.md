@@ -15,3 +15,5 @@
    And we want to share that state across different components. So we can create context and we can share this context across different components.
 
 7. We have created a AuthContext with {isAuthenticated, setAuthenticated} , and all the child components, whichever needs this, will call useContext() and use that context. So lets say, if one component changes isAuthenticated using setAuthenticated, the other components which are using this context will re-rendet the changes in the UI.
+
+8. We have refactored the code to put all the authentication logic into the AuthContext because the logic is duplicated.
