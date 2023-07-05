@@ -25,6 +25,7 @@ public class BasicAuthenticationSecurityConfiguration {
                         .authorizeHttpRequests(
                                 auth ->
                                         auth
+                                                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll() //NEW
                                                 .anyRequest().authenticated()
                         )
                         .httpBasic(Customizer.withDefaults())

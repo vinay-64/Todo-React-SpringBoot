@@ -52,3 +52,5 @@ After setting Authorization header we are getting another error "Access to XMLHt
 
 How to get this header ?
 We should not hard-code this in the header. We must retrieve it when we are logging in and then use it in the subsequent calls. So while login, we will send a request to the BE and get the token and put it in the context to use.
+
+20. We have enabled access to preflight request by permitting HttpMethod Options for all requests and we also created a test url for basicAuth.
