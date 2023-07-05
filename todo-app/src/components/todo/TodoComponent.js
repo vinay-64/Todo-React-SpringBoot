@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { retrieveTodoApi, updateTodoApi } from "./api/TodoApiService";
+import {
+  createTodoApi,
+  retrieveTodoApi,
+  updateTodoApi,
+} from "./api/TodoApiService";
 import { useAuth } from "./security/AuthContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import moment from "moment/moment";
 
 export default function TodoComponent() {
   const { id } = useParams();
@@ -17,12 +22,14 @@ export default function TodoComponent() {
   useEffect(() => retrieveTodos(), [id]);
 
   function retrieveTodos() {
-    retrieveTodoApi(username, id)
-      .then((response) => {
-        setDescription(response.data.description);
-        setTargetDate(response.data.targetDate);
-      })
-      .catch((error) => console.log(error));
+    if (id != -1) {
+      retrieveTodoApi(username, id)
+        .then((response) => {
+          setDescription(response.data.description);
+          setTargetDate(response.data.targetDate);
+        })
+        .catch((error) => console.log(error));
+    }
   }
 
   function onSubmit(values) {
@@ -37,11 +44,19 @@ export default function TodoComponent() {
 
     console.log(todo);
 
-    updateTodoApi(username, id, todo)
-      .then((response) => {
-        navigate("/todos");
-      })
-      .catch((error) => console.log(error));
+    if (id != -1) {
+      updateTodoApi(username, id, todo)
+        .then((response) => {
+          navigate("/todos");
+        })
+        .catch((error) => console.log(error));
+    } else {
+      createTodoApi(username, todo)
+        .then((response) => {
+          navigate("/todos");
+        })
+        .catch((error) => console.log(error));
+    }
   }
 
   function validate(values) {
@@ -54,7 +69,11 @@ export default function TodoComponent() {
       errors.description = "Enter atleast 5 characters";
     }
 
-    if (values.targetDate == null) {
+    if (
+      values.targetDate == null ||
+      values.targetDate == "" ||
+      !moment(values.targetDate).isValid()
+    ) {
       errors.targetDate = "Enter a target date";
     }
 
