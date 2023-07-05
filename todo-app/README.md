@@ -67,5 +67,7 @@ We should not hard-code this in the header. We must retrieve it when we are logg
 24. we need to add Authorization header to all the api's. so we would want to intercept the requests and want to set the Authorization header.
 
 25. We will be using JWT (not Basic Authentication). So here we are getting jwt token.
-Previously we used 'Basic ' as Authorization.
-Now we will be using 'Bearer '
+    Previously we used 'Basic ' as Authorization.
+    Now we will be using 'Bearer '
+
+26. Now here, without Basic Authorization, just by hitting post request to /authenticate with username and password, we will get jwt token. So now we will intercept all the requests with this token as the Authorization Header.
