@@ -17,3 +17,5 @@
 7. We have created a AuthContext with {isAuthenticated, setAuthenticated} , and all the child components, whichever needs this, will call useContext() and use that context. So lets say, if one component changes isAuthenticated using setAuthenticated, the other components which are using this context will re-rendet the changes in the UI.
 
 8. We have refactored the code to put all the authentication logic into the AuthContext because the logic is duplicated.
+
+9. Till now, If we interact with the UI, it will only show todos, welcome if you are logged in, but if you change the url it will show the todos component, eventhough if you are not loggedin. So we need to protect the routes. So In the url, if unauthenticated person visits todos, it will navigate to login. Hence now every thing is protected.
