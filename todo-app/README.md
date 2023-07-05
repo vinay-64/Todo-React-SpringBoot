@@ -39,4 +39,8 @@ BackEnd Integration:
 14. Adding Validation to Todo React Component using Formik
 15. Adding Update Todo and Create Todo REST API to Spring Boot Backend API
 16. Adding Update Feature to React Frontend
-17. Adding Create New Todo Feature to React Frontend
+17. Adding Create New Todo Feature to React Frontend.
+
+Spring Security :
+
+18. Securing spring Boot Rest API with Spring Security. So If we add security dependenty and try to access any api, it shows 401 unauthorized. We disabled CSRF
