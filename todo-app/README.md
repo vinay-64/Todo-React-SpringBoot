@@ -63,3 +63,5 @@ We should not hard-code this in the header. We must retrieve it when we are logg
 22. Using async and await to invoke Basic Auth API
     Here we are using async and await to get the response. And after successful login we are storing the token in the Context.
 23. Setting Basic Auth Token into Auth Context
+
+24. we need to add Authorization header to all the api's. so we would want to intercept the requests and want to set the Authorization header.
