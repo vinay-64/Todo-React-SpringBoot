@@ -27,9 +27,11 @@ export default function LoginComponent() {
   function handleSubmit() {
     if (authContext.login(username, password)) {
       //NEW
+      // authContext.setUsername(username);
       navigate(`/welcome/${username}`);
     } else {
       setShowErrorMessage(true);
+      // authContext.setUsername(null);
     }
   }
 

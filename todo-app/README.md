@@ -33,3 +33,4 @@ BackEnd Integration:
 8. Displaying Todos from Spring Boot REST API in React App
 9. Creating Retrieve Todo and Delete Todo Spring Boot REST API Methods
 10. Adding Delete Feature to React Frontend
+11. Setting Username into React Auth Context

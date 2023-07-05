@@ -3,6 +3,7 @@ import {
   deleteTodoApi,
   retrieveAllTodosForUsernameApi,
 } from "./api/TodoApiService";
+import { useAuth } from "./security/AuthContext";
 
 export default function ListTodosComponent() {
   const today = new Date();
@@ -12,6 +13,10 @@ export default function ListTodosComponent() {
     today.getMonth(),
     today.getDay()
   );
+
+  const authContext = useAuth();
+
+  const username = authContext.username;
 
   const [message, setMessage] = useState(null);
 
@@ -31,7 +36,7 @@ export default function ListTodosComponent() {
   useEffect(() => refreshTodos(), []);
 
   function refreshTodos() {
-    retrieveAllTodosForUsernameApi("vinay")
+    retrieveAllTodosForUsernameApi(username)
       .then((response) => {
         setTodos(response.data);
       })
@@ -39,8 +44,8 @@ export default function ListTodosComponent() {
   }
 
   function deleteTodo(id) {
-    console.log("clicked " + id);
-    deleteTodoApi("in28minutes", id)
+    console.log("clicked " + id + username);
+    deleteTodoApi(username, id)
       .then(
         () => {
           setMessage(`Delete of todo with id = ${id} successful`);
