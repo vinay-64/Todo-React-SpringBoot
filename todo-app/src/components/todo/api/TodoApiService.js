@@ -9,7 +9,11 @@ const apiClient = axios.create({
 // //http://localhost:8080/users/in28minutes/todoss
 
 export const retrieveAllTodosForUsernameApi = (username) =>
-  apiClient.get(`/users/${username}/todos`);
+  apiClient.get(`/users/${username}/todos`, {
+    headers: {
+      Authorization: "Basic dmluYXk6a3VtYXI=",
+    },
+  });
 //http://localhost:8080/users/in28minutes/todos
 
 export const deleteTodoApi = (username, id) =>
