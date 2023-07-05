@@ -19,3 +19,7 @@
 8. We have refactored the code to put all the authentication logic into the AuthContext because the logic is duplicated.
 
 9. Till now, If we interact with the UI, it will only show todos, welcome if you are logged in, but if you change the url it will show the todos component, eventhough if you are not loggedin. So we need to protect the routes. So In the url, if unauthenticated person visits todos, it will navigate to login. Hence now every thing is protected.
+
+BackEnd Integration:
+
+1. Basic Backend HelloWorld Rest Api is built. Now we installed and use axios for using Rest calls to the Backend. So while using axios.get().It will return a Promise. Here we are calling 8080 website from another website 3000. By default it is disabled.
