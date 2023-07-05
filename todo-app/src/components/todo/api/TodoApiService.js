@@ -15,3 +15,6 @@ export const retrieveAllTodosForUsernameApi = (username) =>
 export const deleteTodoApi = (username, id) =>
   apiClient.delete(`/users/${username}/todos/${id}`);
 //http://localhost:8080/users/in28minutes/todos
+
+export const retrieveTodoApi = (username, id) =>
+  apiClient.get(`/users/${username}/todos/${id}`);
