@@ -25,3 +25,4 @@ BackEnd Integration:
 1. Basic Backend HelloWorld Rest Api is built. Now we installed and use axios for using Rest calls to the Backend. So while using axios.get().It will return a Promise. Here we are calling 8080 website from another website 3000. By default it is disabled.
 
 2. Enabling CORS Requests for Spring Boot REST API
+3. Checked whether we are getting any data from BE, and displayed in the UI.
