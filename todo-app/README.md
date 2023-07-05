@@ -43,4 +43,12 @@ BackEnd Integration:
 
 Spring Security :
 
-18. Securing spring Boot Rest API with Spring Security. So If we add security dependenty and try to access any api, it shows 401 unauthorized. We disabled CSRF
+18. Securing spring Boot Rest API with Spring Security. So If we add security dependenty and try to access any api, it shows 401 unauthorized. We disabled CSRF and implemented all filter chain in Sprin boot.s
+19. From React app, while we are doing http requests, we are getting "Access to XMLHttpRequest at 'http://localhost:8080/hello-world-bean' from origin 'http://localhost:3000' has been blocked by CORS policy:", because we have added authentication to the RESP API in Backend. When we enter in url, we will type credentials and we can see data. But here the React App is trying to request Backend, which is authenticated.
+
+So in the react app, for the http requests we need to set the Authorization Headers eg : 'Basic dmluYXk6a3VtYXI=' which is an encoded form of username and password.
+
+After setting Authorization header we are getting another error "Access to XMLHttpRequest at 'Access to XMLHttpRequest at "http://localhost:8080/hello-world/path-variable/VINAY' from origin 'http://localhost:3000' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+
+How to get this header ?
+We should not hard-code this in the header. We must retrieve it when we are logging in and then use it in the subsequent calls. So while login, we will send a request to the BE and get the token and put it in the context to use.
