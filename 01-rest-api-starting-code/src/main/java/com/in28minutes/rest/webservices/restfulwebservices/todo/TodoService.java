@@ -21,7 +21,7 @@ public class TodoService {
 		todos.add(new Todo(++todosCount, "vinay","Learn Full Stack Development",
 				LocalDate.now().plusYears(12), false ));
 	}
-	
+
 	
 	public List<Todo> findByUsername(String username){
 		Predicate<? super Todo> predicate = 
