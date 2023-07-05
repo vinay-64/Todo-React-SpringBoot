@@ -28,3 +28,4 @@ BackEnd Integration:
 3. Enabling CORS Requests for Spring Boot REST API
 4. Checked whether we are getting any data from BE, and displayed in the UI.
 5. component is only responsible for rendering the data in the UI, So don't write http requests code in the component. Use another module for Https work.
+6. checked Path Variable get Request 'apiClient.get(`/hello-world/path-variable/${username}`)'.
